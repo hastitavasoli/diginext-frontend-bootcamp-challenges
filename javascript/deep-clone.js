@@ -7,5 +7,10 @@
  * @returns An Literal exact copy of the arg
  */
 function deepClone(arg) {
-  // TODO: Implement here
+  if (typeof arg !== 'object') return arg
+  let copiedObject = {}
+  for (const property in arg) {
+    copiedObject[property] = deepClone(arg[property])
+  }
+  return copiedObject
 }
